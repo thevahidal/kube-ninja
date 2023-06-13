@@ -9,7 +9,15 @@ git clone https://github.com/thevahidal/kube-ninja.git
 export PATH=$PATH:<path_to_kube-ninja>/bin
 ```
 
-Once you've added the bin directory to your $PATH, you can use the kubectl command with the kube-ninja plugins.
+Once you've added the bin directory to your $PATH, you need to make the plugins executable.
+
+To achieve that set the executable permission on the plugin files using the chmod command.
+
+```bash
+chmod +x <path_to_kube-ninja>/bin/*
+# or one by one
+chmod +x <path_to_kube-ninja>/bin/kubectl-find
+```
 
 ## Usage
 kube-ninja currently contains one plugin, find, which can help you find Kubernetes resources quickly and easily. To use the find plugin, simply run the following command:
