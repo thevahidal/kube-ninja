@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+# `kubectl find <resource_type> -n <namespace> <search_query>`
+# e.g. `kubectl find secrets -n all nginx`
+
+kubectl -n "$3" get "$1" -o go-template='{{range $s:=.items}}{{range $k,$v:=$s.data}}{{printf "%s - %s: %s\n" $s.metadata.name $k $v}}{{end}}{{end}}' | grep -i $4
